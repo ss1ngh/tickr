@@ -10,7 +10,7 @@ const navLinks = [
     {label : "FAQs", href: "#faqs"},
 ]
 const Navbar = () => {
-  return <section  className="p-6 w-full">
+  return <section  className="p-6 w-full bg-black">
     <div className="container max-w-5xl mx-auto">
       <div className="grid grid-cols-2 lg:grid-cols-3 border border-white/15 rounded-full p-2 px-4 md:pr-2 md:pl-5 items-center">
         <div>

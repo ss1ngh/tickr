@@ -5,7 +5,7 @@ import HeatMapWidget from "@/components/widgets/HeatMapWidget"
 import ChartWidget from "@/components/widgets/ChartWidget"
 const Hero = () => {
   return (
-    <section className="py-2 md:py-20 lg:py-22 xl:24 overflow-x-clip">
+    <section className="py-2 md:py-20 lg:py-22 xl:24 overflow-x-clip bg-black">
         <div className="max-w-4xl mx-auto sm:hidden">
           <ScrollTickerTapeWidget/>
         </div>
