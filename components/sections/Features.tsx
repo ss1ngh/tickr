@@ -30,16 +30,16 @@ const features = [
 
 const Features = () => {
   return (
-    <section className="py-24 bg-black  ">
+    <section className="py-16 bg-black  ">
         <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
-            <div className="flex justify-center">
+            <div className="flex justify-center mb-20">
                 <div className="inline-flex items-center gap-2 border border-white/15 px-4 py-1.5 rounded-full">
                     <span className="w-2 h-2 bg-[#C8FF00] rounded-full animate-pulse"></span>
                     <span className="text-white/70 text-sm font-medium">Features</span>
                 </div>
             </div>
             
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium text-center mt-8 max-w-4xl mx-auto leading-tight">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-medium text-center mt-8 max-w-4xl mx-auto leading-tight">
                 Your <span className="text-[#C8FF00]">unfair advantage</span> in the market
             </h2>
 
