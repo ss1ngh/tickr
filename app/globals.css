@@ -5,6 +5,8 @@
   --foreground: #171717;
   --gradient-start: #0a0a0a;
   --gradient-end: #1a1a1a;
+  --brand-primary: #C8FF00;
+  --brand-black: #000000;
 }
 
 @theme inline {
@@ -12,6 +14,8 @@
   --color-foreground: var(--foreground);
   --color-gradient-start: var(--gradient-start);
   --color-gradient-end: var(--gradient-end);
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-black: var(--brand-black);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

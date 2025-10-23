@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
       <Hero/>
-      <ScrollTickerTape/>
+
       <Features/>
     </>
   )

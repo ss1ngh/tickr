@@ -3,7 +3,7 @@ import ScrollTickerTapeWidget from '../widgets/ScrollTickerTapeWidget'
 
 const ScrollTickerTape = ()=> {
   return (
-    <div className='container py-24 mx-auto max-w-full hidden md:block bg-black'>
+    <div className='container py-6 mx-auto max-w-full hidden md:block bg-black'>
         <ScrollTickerTapeWidget/>
     </div>
   )
