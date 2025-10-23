@@ -4,17 +4,39 @@ import {
   HEATMAP_WIDGET_CONFIG, 
   MARKET_DATA_WIDGET_CONFIG, 
   MARKET_OVERVIEW_WIDGET_CONFIG, 
-  TOP_STORIES_WIDGET_CONFIG 
+  TOP_STORIES_WIDGET_CONFIG,
+  CANDLE_CHART_WIDGET_CONFIG // Added this config
 } from '@/lib/constants'
+import TickerTape from '@/components/sections/TickerTape'
 
 const Dashboard = () => {
   const scriptUrl = `https://s3.tradingview.com/external-embedding/embed-widget-`
 
   return (
     <div className='min-h-screen bg-black'>
+      <div>
+        <TickerTape />
+      </div>
+
       <div className='mx-auto max-w-[1920px] px-3 py-3 md:px-4 lg:px-6'>
-        <div className='grid grid-cols-1 gap-3 lg:grid-cols-3 lg:gap-4'>
-          <div className='lg:col-span-1 rounded-lg border border-gray-800 bg-gradient-to-br from-gray-900/50 to-black p-3 backdrop-blur-sm transition-all hover:border-gray-700 md:p-4'>
+        <div className="my-6 md:my-4 flex flex-col items-center gap-4">
+          <div className="inline-flex items-center gap-2 border border-white/15 px-4 py-1.5 rounded-full">
+            <span className="w-2 h-2 bg-[#C8FF00] rounded-full animate-pulse"></span>
+            <span className="text-white/70 text-sm font-bold">Live</span>
+          </div>
+
+          <div className="text-center">
+            <p className="text-lg text-neutral-400">
+              Your live feed of every critical market move.
+            </p>
+          </div>
+        </div>
+
+
+        <div className='grid grid-cols-1 gap-3 lg:grid-cols-4 lg:gap-4'>
+
+          {/* Market Overview (Original) */}
+          <div className='lg:col-span-1 rounded-lg border border-neutral-800 bg-gradient-to-br from-neutral-900/50 to-black p-3 backdrop-blur-sm transition-all hover:border-neutral-700 md:p-4'>
             <TradingViewWidget
               title='Market Overview'
               scriptUrl={`${scriptUrl}market-overview.js`}
@@ -24,7 +46,8 @@ const Dashboard = () => {
             />
           </div>
 
-          <div className='lg:col-span-2 rounded-lg border border-gray-800 bg-gradient-to-br from-gray-900/50 to-black p-3 backdrop-blur-sm transition-all hover:border-gray-700 md:p-4'>
+          {/* Stock Heatmap (Original, resized) */}
+          <div className='lg:col-span-2 rounded-lg border border-neutral-800 bg-gradient-to-br from-neutral-900/50 to-black p-3 backdrop-blur-sm transition-all hover:border-neutral-700 md:p-4'>
             <TradingViewWidget
               title='Stock Heatmap'
               scriptUrl={`${scriptUrl}stock-heatmap.js`}
@@ -33,24 +56,27 @@ const Dashboard = () => {
             />
           </div>
 
-          <div className='lg:col-span-1 rounded-lg border border-gray-800 bg-gradient-to-br from-gray-900/50 to-black p-3 backdrop-blur-sm transition-all hover:border-gray-700 md:p-4'>
+          {/* Market News (Original) */}
+          <div className='lg:col-span-1 rounded-lg border border-neutral-800 bg-gradient-to-br from-neutral-900/50 to-black p-3 backdrop-blur-sm transition-all hover:border-neutral-700 md:p-4'>
             <TradingViewWidget
               title='Market News'
               scriptUrl={`${scriptUrl}timeline.js`}
               config={TOP_STORIES_WIDGET_CONFIG}
               className='custom-chart'
-              height={480}
+              height={500} // Adjusted height to match heatmap
             />
           </div>
 
-          <div className='lg:col-span-2 rounded-lg border border-gray-800 bg-gradient-to-br from-gray-900/50 to-black p-3 backdrop-blur-sm transition-all hover:border-gray-700 md:p-4'>
+          {/* Market Quotes (Original, resized) */}
+          <div className='lg:col-span-1 rounded-lg border border-neutral-800 bg-gradient-to-br from-neutral-900/50 to-black p-3 backdrop-blur-sm transition-all hover:border-neutral-700 md:p-4'>
             <TradingViewWidget
               title='Market Quotes'
               scriptUrl={`${scriptUrl}market-quotes.js`}
               config={MARKET_DATA_WIDGET_CONFIG}
-              height={480}
+              height={500} // Adjusted height to match heatmap
             />
           </div>
+
         </div>
       </div>
     </div>
@@ -58,3 +84,4 @@ const Dashboard = () => {
 }
 
 export default Dashboard
+
