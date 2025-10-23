@@ -1,10 +1,7 @@
-
 import type { ReactNode } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import logo2 from '../../public/assets/logo2.svg';
-import { AuthCarousel } from './AuthCarousel';
-
 import PixelBlast from '@/components/ui/PixelBlast';
 
 interface LayoutProps {
@@ -37,22 +34,23 @@ export default function Layout({ children }: LayoutProps) {
             variant="circle"
             pixelSize={3}
             color="#C8FF00"
-            patternScale={4}
-            patternDensity={1.8}
-            pixelSizeJitter={1.5}
-            enableRipples = {true}
+            patternScale={3}
+            patternDensity={1.0}
+            pixelSizeJitter={1.0}
+            enableRipples
             rippleSpeed={1.2}
-            rippleThickness={1.8}
-            rippleIntensityScale={1.2}
-            liquid = {false}
+            rippleThickness={0.0}
+            rippleIntensityScale={1.5}
+            liquid
             liquidStrength={0.0}
             liquidRadius={0.0}
             liquidWobbleSpeed={0}
-            speed={0.8}
+            speed={0.6}
             edgeFade={0.25}
             transparent
           />
         </div>
+
       </div>
     </div>
   );

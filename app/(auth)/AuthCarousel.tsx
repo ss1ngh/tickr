@@ -27,7 +27,6 @@ export function AuthCarousel() {
         }}
         plugins={[plugin.current]}
         className="w-full"
-        onMouseLeave={() => plugin.current.play()}
       >
         <CarouselContent>
           <CarouselItem>
