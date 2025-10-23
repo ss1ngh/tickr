@@ -41,10 +41,10 @@ export default function SignIn() {
           className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-neutral-800 rounded-lg text-white hover:bg-neutral-900 transition-colors"
         >
           <svg className="w-5 h-5" viewBox="0 0 21 21" fill="currentColor">
-            <rect x="1" y="1" width="9" height="9" fill="#f25022"/>
-            <rect x="11" y="1" width="9" height="9" fill="#00a4ef"/>
-            <rect x="1" y="11" width="9" height="9" fill="#7fba00"/>
-            <rect x="11" y="11" width="9" height="9" fill="#ffb900"/>
+            <rect x="1" y="1" width="9" height="9" fill="#f25022" />
+            <rect x="11" y="1" width="9" height="9" fill="#00a4ef" />
+            <rect x="1" y="11" width="9" height="9" fill="#7fba00" />
+            <rect x="11" y="11" width="9" height="9" fill="#ffb900" />
           </svg>
           <span>Continue with Microsoft</span>
         </button>
@@ -55,7 +55,8 @@ export default function SignIn() {
           <div className="w-full border-t border-neutral-800" />
         </div>
         <div className="relative flex justify-center text-sm">
-          <span className="px-4 bg-black text-neutral-500">OR</span>
+          {/* Updated background to match inputs */}
+          <span className="px-4 bg-neutral-900 text-neutral-600">OR</span>
         </div>
       </div>
 
@@ -69,7 +70,7 @@ export default function SignIn() {
             id="email"
             name="email"
             placeholder="Enter your email"
-            className="w-full px-4 py-3 bg-neutral-900 border border-neutral-800 rounded-lg text-white placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all"
+            className="w-full px-4 py-3 bg-neutral-900 border border-neutral-800 rounded-lg  placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:border-transparent transition-all"
             required
           />
         </div>
@@ -83,7 +84,7 @@ export default function SignIn() {
             id="password"
             name="password"
             placeholder="Enter your password"
-            className="w-full px-4 py-3 bg-neutral-900 border border-neutral-800 rounded-lg text-white placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all"
+            className="w-full px-4 py-3 bg-neutral-900 border border-neutral-800 rounded-lg placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:border-transparent transition-all"
             required
           />
         </div>
@@ -92,18 +93,18 @@ export default function SignIn() {
           <label className="flex items-center text-neutral-400 cursor-pointer">
             <input
               type="checkbox"
-              className="w-4 h-4 rounded border-neutral-700 bg-neutral-900 text-brand-primary focus:ring-brand-primary focus:ring-offset-0"
+              className="w-4 h-4 rounded border-neutral-800 bg-neutral-900 text-[#C8FF00] focus:ring-neutral-800/50"
             />
             <span className="ml-2">Remember me</span>
           </label>
-          <a href="#" className="text-brand-primary hover:underline">
+          <a href="#" className="text-[#C8FF00] hover:underline">
             Forgot password?
           </a>
         </div>
 
         <button
           type="submit"
-          className="w-full px-4 py-3 bg-brand-primary text-black font-semibold rounded-lg hover:bg-brand-primary/90 transition-colors"
+          className="w-full px-4 py-3 bg-[#C8FF00] text-black font-semibold rounded-lg hover:bg-[#C8FF00]/90 transition-colors"
         >
           Log in
         </button>
@@ -111,7 +112,7 @@ export default function SignIn() {
 
       <p className="text-center text-sm text-neutral-400 mt-6">
         Don't have an account?{' '}
-        <Link href="/sign-up" className="text-brand-primary hover:underline">
+        <Link href="/sign-up" className="text-[#C8FF00] hover:underline">
           Sign up
         </Link>
       </p>
