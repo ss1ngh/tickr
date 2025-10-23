@@ -37,26 +37,21 @@ export default function Layout({ children }: LayoutProps) {
             variant="circle"
             pixelSize={3}
             color="#C8FF00"
-            patternScale={3}
-            patternDensity={1.0}
-            pixelSizeJitter={1.0}
-            enableRipples
+            patternScale={4}
+            patternDensity={1.8}
+            pixelSizeJitter={1.5}
+            enableRipples = {true}
             rippleSpeed={1.2}
-            rippleThickness={0.0}
-            rippleIntensityScale={1.5}
-            liquid
+            rippleThickness={1.8}
+            rippleIntensityScale={1.2}
+            liquid = {false}
             liquidStrength={0.0}
             liquidRadius={0.0}
             liquidWobbleSpeed={0}
-            speed={0.6}
+            speed={0.8}
             edgeFade={0.25}
             transparent
           />
-        </div>
-
-        {/* 4. Wrap carousel in a relative div with z-10 to place it on top */}
-        <div className="relative z-10">
-          <AuthCarousel/>
         </div>
       </div>
     </div>
