@@ -10,47 +10,40 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen bg-black flex">
-      {/* LeftsideForm */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-6 lg:p-12">
-        <div className="w-full max-w-lg">
-          <div className="space-y-6 flex justify-center lg:justify-start">
-            <Link href="/">
-              <Image src={logo2} alt="tickr logo" width={80} height={80} />
-            </Link>
-          </div>
-          
-          <div className="mt-6">
-            {children}
-          </div>
-        </div>  
+    <div className="min-h-screen flex items-center justify-center mx-auto p-4">
+      <div className="hidden md:block absolute inset-0 z-0">
+        <PixelBlast
+          variant="circle"
+          pixelSize={4}
+          color="#C8FF00"
+          patternScale={3}
+          patternDensity={2.0}
+          pixelSizeJitter={1.2}
+          enableRipples={true}
+          rippleSpeed={1.2}
+          rippleThickness={1.2}
+          rippleIntensityScale={1.8}
+          liquid={false}
+          liquidStrength={1.5}
+          liquidRadius={1.2}
+          liquidWobbleSpeed={2}
+          speed={1.2}
+          edgeFade={0.3}
+          transparent={true}
+        />
       </div>
 
-      {/* RightSide */}
-      <div className="hidden lg:flex lg:w-1/2 items-center justify-center p-12 relative overflow-hidden">
-        
-        <div className="absolute inset-0 z-0">
-          <PixelBlast
-            variant="circle"
-            pixelSize={3}
-            color="#C8FF00"
-            patternScale={3}
-            patternDensity={1.0}
-            pixelSizeJitter={1.0}
-            enableRipples
-            rippleSpeed={1.2}
-            rippleThickness={0.0}
-            rippleIntensityScale={1.5}
-            liquid
-            liquidStrength={0.0}
-            liquidRadius={0.0}
-            liquidWobbleSpeed={0}
-            speed={0.6}
-            edgeFade={0.25}
-            transparent
-          />
+      {/* Form */}
+      <div className="relative z-10 w-full max-w-md p-8 md:p-10 bg-neutral-900/10 border border-white/15 rounded-3xl backdrop-blur-lg">
+        <div className="flex justify-center mb-6">
+          <Link href="/">
+            <Image src={logo2} alt="tickr logo" width={80} height={80} />
+          </Link>
         </div>
 
+        <div>
+          {children}
+        </div>
       </div>
     </div>
   );
