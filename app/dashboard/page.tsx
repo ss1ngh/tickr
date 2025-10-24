@@ -4,8 +4,7 @@ import {
   HEATMAP_WIDGET_CONFIG, 
   MARKET_DATA_WIDGET_CONFIG, 
   MARKET_OVERVIEW_WIDGET_CONFIG, 
-  TOP_STORIES_WIDGET_CONFIG,
-  CANDLE_CHART_WIDGET_CONFIG // Added this config
+  TOP_STORIES_WIDGET_CONFIG
 } from '@/lib/constants'
 import TickerTape from '@/components/sections/TickerTape'
 

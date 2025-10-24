@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import type { RawNewsArticle, Alert } from './types';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -85,7 +86,7 @@ export const formatArticle = (
     symbol?: string,
     index: number = 0
 ) => ({
-  id: isCompanyNews ? Date.now() + Math.random() : article.id + index,
+  id: isCompanyNews ? Date.now() + Math.random() : (article.id ?? 0) + index,
   headline: article.headline!.trim(),
   summary:
       article.summary!.trim().substring(0, isCompanyNews ? 200 : 150) + '...',
