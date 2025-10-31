@@ -43,7 +43,7 @@ const MiniChartWidget: React.FC = () => {
     <div 
       className="tradingview-widget-container" 
       ref={container} 
-      style={{ height: "100%", width: "100%" }} 
+      style={{ height: "90%", width: "90%" }} 
     />
   );
 };

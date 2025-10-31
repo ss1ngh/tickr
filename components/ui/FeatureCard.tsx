@@ -7,7 +7,7 @@ export default function FeatureCard(props : {
     const {title, description, children, index = 0} = props;
     
     return(
-        <div className="relative bg-neutral-900/50 border border-white/10 p-6 md:p-8 rounded-3xl h-full overflow-hidden group hover:border-[#C8FF00]/30 transition-all duration-300">
+        <div className="relative bg-neutral-900/50 border border-white/10 p-4 md:p-5 rounded-3xl h-full overflow-hidden group hover:border-[#C8FF00]/30 transition-all duration-300">
             
             <div className="absolute inset-0 bg-gradient-to-br from-[#C8FF00]/0 via-[#C8FF00]/0 to-[#C8FF00]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             
@@ -27,7 +27,7 @@ export default function FeatureCard(props : {
                 )}
                 
                 <div>
-                    <h3 className="text-2xl md:text-3xl font-medium text-white group-hover:text-[#C8FF00] transition-colors duration-300">
+                    <h3 className="text-2xl md:text-2xl font-medium text-white group-hover:text-[#C8FF00] transition-colors duration-300">
                         {title}
                     </h3>
                     <p className="text-white/50 mt-3 text-base md:text-lg leading-relaxed">

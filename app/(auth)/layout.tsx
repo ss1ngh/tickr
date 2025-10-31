@@ -10,38 +10,38 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen flex items-center justify-center mx-auto p-4">
+    <div className="min-h-screen flex items-center justify-center mx-auto p-4 overflow-hidden">
       <div className="hidden md:block absolute inset-0 z-0">
         <PixelBlast
           variant="circle"
           pixelSize={4}
           color="#C8FF00"
           patternScale={3}
-          patternDensity={2.0}
+          patternDensity={1.5}
           pixelSizeJitter={1.2}
           enableRipples={true}
           rippleSpeed={1.2}
-          rippleThickness={1.2}
-          rippleIntensityScale={1.8}
+          rippleThickness={1.0}
+          rippleIntensityScale={1.2}
           liquid={false}
           liquidStrength={1.5}
           liquidRadius={1.2}
           liquidWobbleSpeed={2}
           speed={1.2}
-          edgeFade={0.3}
+          edgeFade={0.10}
           transparent={true}
         />
       </div>
 
       {/* Form */}
-      <div className="relative z-10 w-full max-w-md p-8 md:p-10 bg-neutral-900/10 border border-white/15 rounded-3xl backdrop-blur-lg">
-        <div className="flex justify-center mb-6">
+      <div className="relative z-10 w-full max-w-md p-6 bg-neutral-600/20 border border-white/15 rounded-3xl backdrop-blur-lg my-4">
+        <div className="flex justify-center mb-3">
           <Link href="/">
-            <Image src={logo2} alt="tickr logo" width={80} height={80} />
+            <Image src={logo2} alt="tickr logo" width={60} height={60} />
           </Link>
         </div>
 
-        <div>
+        <div className="overflow-hidden">
           {children}
         </div>
       </div>

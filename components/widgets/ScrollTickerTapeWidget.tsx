@@ -54,7 +54,7 @@ const ScrollTickerTapeWidget: React.FC = () => {
       <div 
         ref={container}
         style={{
-          transform: 'scale(0.8)',
+          transform: 'scale(0.7)',
           transformOrigin: 'top'
         }}
       />

@@ -70,7 +70,7 @@ const ChartWidget: React.FC<ChartWidgetProps> = ({
       style={{
         width,
         height,
-        transform: 'scale(0.9)',
+        transform: 'scale(0.8)',
         transformOrigin: 'top right', 
       }}
     />
