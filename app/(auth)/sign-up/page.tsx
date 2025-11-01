@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import Link from "next/link";
 import InputField from '@/components/forms/InputField';
 import SelectField from '@/components/forms/SelectField';
-import { signUpSchema, SignUpFormValues } from '@/lib/validations/auth';
+import { signUpSchema, SignUpFormValues } from '@/lib/validations/auth.schema';
 import { INVESTMENT_GOALS, RISK_TOLERANCE_OPTIONS, PREFERRED_INDUSTRIES } from '@/lib/constants';
 import { useState } from 'react';
 
