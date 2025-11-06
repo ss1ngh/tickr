@@ -34,7 +34,7 @@ export default function Layout({ children }: LayoutProps) {
       </div>
 
       {/* Form */}
-      <div className="relative z-10 w-full max-w-md p-6 bg-neutral-600/20 border border-white/15 rounded-3xl backdrop-blur-lg my-4">
+      <div className="relative z-20 w-full max-w-lg p-6 bg-neutral-600/20 border border-white/15 rounded-3xl backdrop-blur-lg my-2">
         <div className="flex justify-center mb-3">
           <Link href="/">
             <Image src={logo2} alt="tickr logo" width={60} height={60} />

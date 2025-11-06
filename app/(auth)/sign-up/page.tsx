@@ -7,8 +7,13 @@ import SelectField from '@/components/forms/SelectField';
 import { signUpSchema, SignUpFormValues } from '@/lib/validations/auth.schema';
 import { INVESTMENT_GOALS, RISK_TOLERANCE_OPTIONS, PREFERRED_INDUSTRIES } from '@/lib/constants';
 import { useState } from 'react';
+import { signUpWithEmail } from '@/lib/actions/auth.actions';
+import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
+import { CountrySelectField } from '@/components/forms/CountrySelectField';
 
 const SignUp = () => {
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
 
   const {
@@ -25,6 +30,7 @@ const SignUp = () => {
       fullName: '',
       email: '',
       password: '',
+      country: '',
       investmentGoals: "Growth",
       riskTolerance: "Medium",
       preferredIndustries: "Technology",
@@ -35,14 +41,19 @@ const SignUp = () => {
 
   const onSubmit = async (data: SignUpFormValues) => {
     try {
-      console.log('Form submitted:', data);
-    } catch (e) {
-      console.error('Sign-up error:', e);
+      const result = await signUpWithEmail(data);
+      if( result.success ) router.push('/dashboard')
+    } catch (error) {
+      console.error(error);
+      toast.error('Sign up failed', {
+        description: error instanceof Error ? error.message  : 'Failed to create an account',
+      })
+
     }
   };
 
   const handleNextStep = async () => {
-    const isValid = await trigger(['fullName', 'email', 'password']);
+    const isValid = await trigger(['fullName', 'email', 'password', 'country']);
     if (isValid) {
       setCurrentStep(2);
     }
@@ -153,6 +164,15 @@ const SignUp = () => {
               error={errors.password}
             />
 
+
+            <CountrySelectField
+              name="country"
+              label="Country"
+              control={control}
+              error={errors.country}
+              required
+            />
+
             <button
               type="button"
               onClick={handleNextStep}
@@ -170,6 +190,7 @@ const SignUp = () => {
             <h2 className="text-base font-semibold text-white mb-3">Investment Preferences</h2>
             
             <div className="space-y-3">
+
               <SelectField
                 name="investmentGoals"
                 label="Investment Goals"

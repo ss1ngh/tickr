@@ -48,7 +48,9 @@ const SelectField = ({
       )}
     />
 
-    {error && <p className="text-red-500 text-xs mt-1">{error.message}</p>}
+    <div className="min-h-[20px]">
+      {error && <p className="text-red-500 text-xs mt-1">{error.message}</p>}
+    </div>
   </div>
 );
 

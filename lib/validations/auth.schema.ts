@@ -18,7 +18,7 @@ export type SignInFormValues = z.infer<typeof signInSchema>;
 export const signUpSchema = z.object({
   fullName: z
     .string()
-    .min(2, 'Full name must be at least 2 characters')
+    .min(2,'Full name is required')
     .max(100, 'Full name must be less than 100 characters')
     .regex(/^[a-zA-Z\s]+$/, 'Full name can only contain letters and spaces'),
   
@@ -34,6 +34,12 @@ export const signUpSchema = z.object({
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/,
       'Password must contain at least one uppercase letter, one lowercase letter, and one number'
     ),
+
+  country: z
+    .string()
+    .min(1, 'Country is required')
+    .max(1),
+
   
   investmentGoals: z.enum(['Growth', 'Income', 'Balanced', 'Conservative'], {
     message: 'Please select an investment goal',

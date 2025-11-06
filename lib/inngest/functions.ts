@@ -1,6 +1,7 @@
 import { success } from "zod";
 import { inngest } from "./client";
 import { PERSONALIZED_WELCOME_EMAIL_PROMPT } from "./prompts";
+import { sendWelcomeEmail } from "../nodemailer";
 
 export const sendSignUpEmail = inngest.createFunction(
     {id: 'sign-up-email'},
@@ -35,6 +36,8 @@ export const sendSignUpEmail = inngest.createFunction(
             const introText = (part && 'text' in part ? part.text : null) || "Thanks for joining Tickr - one tool to track markets and make smarter investments" ;
 
             //send email logic
+            const { data : {email, name} } = event;
+            return await sendWelcomeEmail({ email, name, intro : introText })
         })
 
         return {
