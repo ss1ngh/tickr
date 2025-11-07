@@ -60,3 +60,19 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #505050;
 }
+
+@keyframes bounce-features {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); /* Start and end at original position */
+  }
+  40% {
+    transform: translateY(-20px); /* Move up sharply */
+  }
+  60% {
+    transform: translateY(-5px); /* Smaller move up */
+  }
+}
+
+.bounce-pill {
+  animation: bounce-features 2s infinite ease-in-out;
+}

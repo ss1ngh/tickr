@@ -20,7 +20,7 @@ export default function SignIn() {
     mode: 'onBlur'
   });
 
-  const onSubmit = async (data: SignInFormValues) => {
+  const onSubmit = async (data: SignInFormData) => {
     try {
       console.log('Form submitted:', data);
       // TODO: Implement actual sign-in logic

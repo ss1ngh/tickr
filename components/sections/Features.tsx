@@ -31,9 +31,9 @@ const features = [
 
 const Features = () => {
   return (
-    <section id="features" className="py-16 bg-black">
+    <section id="features" className="py-20 bg-black">
         <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
-            <div className="flex justify-center mb-20">
+            <div className="flex justify-center mb-20 bounce-pill">
                 <Link href='#features'>
                     <div className="inline-flex items-center gap-2 border border-white/15 px-4 py-1.5 rounded-full">
                         <span className="w-2 h-2 bg-[#C8FF00] rounded-full animate-pulse"></span>

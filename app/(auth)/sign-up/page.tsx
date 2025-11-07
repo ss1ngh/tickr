@@ -21,6 +21,7 @@ const SignUp = () => {
     handleSubmit,
     control,
     trigger,
+    setError,
     formState: { errors, isSubmitting },
   } = useForm<SignUpFormValues>({
     
@@ -42,13 +43,30 @@ const SignUp = () => {
   const onSubmit = async (data: SignUpFormValues) => {
     try {
       const result = await signUpWithEmail(data);
-      if( result.success ) router.push('/dashboard')
+      if (result.success) {
+        toast.success('Account created successfully!');
+        router.push('/dashboard');
+      } else {
+        if (result.field && result.error) {
+          setError(result.field as keyof SignUpFormValues, {
+            type: 'server',
+            message: result.error
+          });
+          const step1Fields = ['fullName', 'email', 'password', 'country'];
+          if (step1Fields.includes(result.field)) {
+            setCurrentStep(1);
+          }
+        } else if (result.error) {
+          toast.error('Sign up failed', {
+            description: result.error,
+          });
+        }
+      }
     } catch (error) {
       console.error(error);
       toast.error('Sign up failed', {
         description: error instanceof Error ? error.message  : 'Failed to create an account',
-      })
-
+      });
     }
   };
 

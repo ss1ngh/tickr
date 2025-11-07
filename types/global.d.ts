@@ -4,17 +4,6 @@ declare global {
         password: string;
     };
 
-    type SignUpFormData = {
-        fullName: string;
-        email: string;
-        password: string;
-        investmentGoals: 'Growth' | 'Income' | 'Balanced' | 'Conservative';
-        country: ''
-        riskTolerance: 'Low' | 'Medium' | 'High';
-        preferredIndustries: 'Technology' | 'Healthcare' | 'Consumer Goods' | 'Finance' | 'Energy';
-        terms: boolean;
-    };
-
     type CountrySelectProps = {
         name: string;
         label: string;

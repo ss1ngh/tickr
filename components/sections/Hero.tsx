@@ -6,7 +6,7 @@ import ChartWidget from "@/components/widgets/ChartWidget"
 import TickerTape from "./TickerTape"
 const Hero = () => {
   return (
-    <section className="py-4 md:py-8 lg:py-34 xl:36 overflow-x-clip bg-black">
+    <section className="py-4 md:py-8 lg:py-30 xl:34 overflow-x-clip bg-black">
         <div className="max-w-3xl mx-auto mb-4 lg:hidden">
           <TickerTape/>
         </div>
@@ -22,7 +22,7 @@ const Hero = () => {
             <ChartWidget/>
           </div>
     
-          <h1 className="text-5xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-center mt-2 max-w-3xl md:max-w-xl lg:max-w-5xl mx-auto leading-tight">
+          <h1 className="text-5xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-center max-w-3xl md:max-w-xl lg:max-w-5xl mx-auto leading-tight">
             All 
             <span className="text-[#C8FF00]"> market movements</span>, in one view.
           </h1>
