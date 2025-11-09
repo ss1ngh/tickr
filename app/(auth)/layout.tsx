@@ -33,6 +33,7 @@ export default function Layout({ children }: LayoutProps) {
         />
       </div>
 
+      <div className="absolute inset-0 bg-black opacity-65 z-10" />
       
       <div className="relative z-20 w-full max-w-lg p-6 bg-neutral-600/20 border border-white/15 rounded-3xl backdrop-blur-lg my-2">
         <div className="flex justify-center mb-3">

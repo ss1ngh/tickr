@@ -176,7 +176,6 @@ const Navbar = ( {user} : {user?: User }) => {
       </div>
     </div>
 
-    {/* Mobile Menu Overlay */}
     {isMobileMenuOpen && (
       <>
         {/* Backdrop */}
