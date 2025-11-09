@@ -1,10 +1,25 @@
 import type React from 'react'
 import Navbar from '@/components/sections/Navbar'
+import { auth } from '@/lib/better-auth/auth'
+import { headers } from 'next/headers'
+import { redirect } from 'next/navigation'
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = async ({ children }: { children: React.ReactNode }) => {
+  const session = await auth.api.getSession({ headers: await headers() });
+
+  if(!session?.user) { 
+    redirect('/sign-in');
+  }
+
+  const user = {
+    id: session.user.id,
+    name: session.user.name,
+    email: session.user.email,
+  }
+
   return (
     <main className='min-h-screen bg-black'>
-      <Navbar />
+      <Navbar user={user} />
       {children}
     </main>
   )

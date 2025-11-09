@@ -2,10 +2,15 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import InputField from '@/components/forms/InputField';
 import { signInSchema, SignInFormValues } from '@/lib/validations/auth.schema';
+import { signInWithEmail } from '@/lib/actions/auth.actions';
 
 export default function SignIn() {
+  const router = useRouter();
+  const [error, setError] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
@@ -20,12 +25,20 @@ export default function SignIn() {
     mode: 'onBlur'
   });
 
-  const onSubmit = async (data: SignInFormData) => {
+  const onSubmit = async (data: SignInFormValues) => {
     try {
-      console.log('Form submitted:', data);
-      // TODO: Implement actual sign-in logic
+      setError(null);
+      const result = await signInWithEmail(data.email, data.password);
+      
+      if (result.success) {
+        router.push('/dashboard');
+        router.refresh();
+      } else {
+        setError(result.error || 'Sign in failed. Please try again.');
+      }
     } catch (e) {
       console.error('Sign-in error:', e);
+      setError('An unexpected error occurred. Please try again.');
     }
   };
 
@@ -74,6 +87,12 @@ export default function SignIn() {
         </div>
       </div>
 
+      {error && (
+        <div className="p-3 bg-red-500/10 border border-red-500/50 rounded-lg">
+          <p className="text-sm text-red-400">{error}</p>
+        </div>
+      )}
+
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
         <InputField 
           name="email" 
@@ -110,7 +129,7 @@ export default function SignIn() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full px-4 py-2 bg-brand-primary text-black text-sm font-semibold rounded-lg hover:bg-brand-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full px-4 py-2 bg-brand-primary text-black text-sm font-semibold rounded-lg hover:bg-brand-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
         >
           {isSubmitting ? 'Logging in...' : 'Log in'}
         </button>
